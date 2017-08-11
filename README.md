@@ -1,2 +1,2 @@
-# react-project-boilerplate
+# React Project Boilerplate
 Boilerplate for react project.
