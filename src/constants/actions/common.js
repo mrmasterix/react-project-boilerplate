@@ -1,1 +1,1 @@
-export const COMPONENT_LOADING = 'COMPONENT_LOADING';
+export const IS_LOADING = 'IS_LOADING';

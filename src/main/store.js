@@ -6,6 +6,7 @@ export default class CreateStore {
   constructor(props) {
     this.persistedState = props.persistedState || {};
     this.reducers = props.reducers || {};
+    console.log(this.reducers);
     this.combinedReducers = combineReducers(this.reducers);
     this.middleware = props.middleware || [];
     return createStore(

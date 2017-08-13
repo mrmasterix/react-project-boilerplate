@@ -1,1 +1,1 @@
-import './componentLoading';
+import './isLoading';

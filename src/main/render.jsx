@@ -4,15 +4,21 @@ import thunk from 'redux-thunk';
 import { applyMiddleware } from 'redux';
 import AppProvider from './provider';
 import Store from './store';
-import PureReducer from '../base/reducer/pure';
+import PureReducers from '../base/reducer/pure';
+import StorageReducer from '../base/reducer/storage';
 
 export default () => {
+
   const store = new Store({
-    reducers: PureReducer.getAll(),
+    reducers: {
+      ...StorageReducer.getAll(),
+      ...PureReducers.getAll(),
+    },
     middleware: [
       applyMiddleware(thunk),
     ],
   });
+  window.store = store;
   const node = document.querySelector(commonConfig.appRoot);
   render(<AppProvider store={store} />, node);
 };

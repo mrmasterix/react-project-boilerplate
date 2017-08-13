@@ -44,24 +44,26 @@ module.exports = {
         ],
       },
       {
-        test: /\.(gif|png|jpe?g|svg)$/i,
-        loaders: [
-          {
-            loader: 'file-loader?limit=100000&name=./img/[name].[ext]',
-          },
-          {
-            loader: 'image-webpack-loader',
-            query: {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loaders: ['file-loader?name=./img/[name].[ext]', {
+          loader: 'image-webpack-loader',
+          query: {
+            mozjpeg: {
               progressive: true,
-              optimizationLevel: 7,
+            },
+            gifsicle: {
               interlaced: false,
-              pngquant: {
-                quality: '65-90',
-                speed: 4,
-              },
+            },
+            optipng: {
+              optimizationLevel: 4,
+            },
+            pngquant: {
+              quality: '75-90',
+              speed: 3,
             },
           },
-        ],
+        }],
+        exclude: /node_modules/,
       },
     ],
   },

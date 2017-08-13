@@ -1,6 +1,5 @@
 
 describe('First test: ', () => {
-
   test('Should be true if pass boolean', () => {
     // Arrange
     const testVar = true;
@@ -11,5 +10,4 @@ describe('First test: ', () => {
     // Assert
     expect(result).toBe('boolean');
   });
-
 });
