@@ -1,7 +1,7 @@
 import React from 'react';
 import App from '../app';
 
-export default class AppComponent extends React.Component {
+export default class BaseComponent extends React.Component {
   constructor({ info }) {
     super();
     if (typeof info !== 'object') {

@@ -1,0 +1,38 @@
+/*=================================
+=            Base styles           =
+=================================*/
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  font: $default-font;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+button {
+  vertical-align: top;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+.app-root {
+  overflow: hidden;
+}

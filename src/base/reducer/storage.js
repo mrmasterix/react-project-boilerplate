@@ -14,11 +14,11 @@ class ReducerStorage {
   }
 
   getAll() {
-    const r = {};
-    Object.keys(this.reducers).forEach((k) => {
-      r[k] = this.reducers[k].getNewState;
+    const reducers = {};
+    Object.keys(this.reducers).forEach((reducerName) => {
+      reducers[reducerName] = this.reducers[reducerName].getNewState;
     });
-    return r;
+    return reducers;
   }
 
   addReducer(reducerName, reducerInstance) {
@@ -31,11 +31,8 @@ class ReducerStorage {
   getNewState(state, action, types) {
     const keys = Object.keys(this.reducers);
     return keys.reduce((curState, reducerKey) => {
-      if (SmartObject.hasProp(types, action.type)) {
-        if (this.reducers[reducerKey].getNewState) {
-          return this.reducers[reducerKey].getNewState(curState, action);
-        }
-        return this.reducers[reducerKey](curState, action);
+      if (SmartObject.hasValue(types, action.type)) {
+        return this.reducers[reducerKey].getNewState(curState, action);
       }
       return state;
     }, state);
