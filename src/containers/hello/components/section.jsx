@@ -1,9 +1,9 @@
 import React from 'react';
 import Title from './sectionTitle';
 import Message from './message';
-import Form from './formHolder';
+import FormHolder from './formHolder';
 
-export default (props) => (
+export default props => (
   <section className={props.block()}>
 
     <Title
@@ -16,7 +16,7 @@ export default (props) => (
       element={props.element}
     />
 
-    <Form
+    <FormHolder
       {...props}
       element={props.element}
     />

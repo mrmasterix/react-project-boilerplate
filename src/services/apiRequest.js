@@ -79,7 +79,6 @@ export default class Request {
     params.method = this.method;
     this.addQuery(data.query);
     this.addData(params, data);
-    console.log(params);
     return params;
   }
 
