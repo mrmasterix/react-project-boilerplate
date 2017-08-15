@@ -2,17 +2,22 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const config = require('../config.json');
 
 module.exports = {
   devtool: 'source-map',
 
   entry: {
-    bundle: ['babel-polyfill', path.resolve(__dirname, '../src/bundle.js')],
+    bundle: [
+      'babel-polyfill',
+      'webpack-hot-middleware/client',
+      path.resolve(__dirname, '../src/bundle.js')
+    ],
   },
 
   output: {
-    filename: 'src/[name].js',
+    filename: 'js/[name].js',
     path: path.resolve(__dirname, '../dist/'),
     publicPath: '/',
   },
@@ -73,8 +78,12 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.NoEmitOnErrorsPlugin(),
+
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
+    new webpack.optimize.ModuleConcatenationPlugin(),
+    new CleanWebpackPlugin(['dist']),
 
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
