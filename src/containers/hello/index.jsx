@@ -33,6 +33,8 @@ class Hello extends BaseComponent {
 
 Hello.propTypes = {
   info: PropTypes.object.isRequired,
+  helloMessage: PropTypes.func.isRequired,
+  message: PropTypes.string.isRequired,
 };
 
 export default connect(componentProps, componentActions)(Hello);

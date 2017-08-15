@@ -7,4 +7,4 @@ export default [
     exact: true,
     private: false,
   },
-]
+];

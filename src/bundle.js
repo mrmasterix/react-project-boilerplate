@@ -3,5 +3,7 @@ import './global';
 import './actions';
 import './reducers';
 import App from './app';
-window.App = App;
+
+import ApiRequest from './services/request';
+window.ApiRequest = ApiRequest;
 App.run();

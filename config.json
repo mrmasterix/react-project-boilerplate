@@ -6,7 +6,7 @@
   },
 
   "production": {
-    "api_url": "//production_url"
+    "apiUrl": "//production_url"
   },
 
   "development": {
