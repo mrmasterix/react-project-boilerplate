@@ -6,11 +6,11 @@ class IsLoading extends BaseReducer {
 
   getNewState(state = false, action) {
     if (action.type === IS_LOADING) {
-      return action.payload.isLoading || action.payload;
+      return action.payload.isLoading || action.payload || false;
     }
     return state;
   }
 
 }
 
-ReducerStorage.addReducer('isLoading', new IsLoading());
+ReducerStorage.addReducer('IsLoading', new IsLoading());

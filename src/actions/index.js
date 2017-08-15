@@ -1,2 +1,2 @@
-import './getPost';
 import './loading';
+import './helloMessage';

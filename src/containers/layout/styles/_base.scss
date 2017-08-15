@@ -33,6 +33,12 @@ select::-ms-expand {
   display: none;
 }
 
-.app-root {
+.app-root,
+.b-applicationHolder,
+.b-pageHolder {
   overflow: hidden;
+}
+
+.b-pageHolder {
+  display: flex;
 }

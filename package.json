@@ -71,6 +71,7 @@
     "jspolyfill-array.prototype.find": "^0.1.3",
     "prop-types": "^15.5.10",
     "react": "^15.6.0",
+    "react-bem-classes": "^1.1.0",
     "react-dom": "^15.6.0",
     "react-redux": "^5.0.5",
     "react-router": "^4.0.0",

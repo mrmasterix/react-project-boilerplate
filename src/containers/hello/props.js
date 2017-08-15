@@ -1,7 +1,8 @@
 export default state => ({
-  ...state.Layout,
+  ...state.Hello,
   isLoading: state.isLoading,
   info: {
-    name: 'Layout',
+    name: 'Hello',
+    pageClass: '-page_hello',
   },
 });

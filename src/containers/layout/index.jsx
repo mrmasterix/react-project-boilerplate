@@ -1,31 +1,30 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, BrowserHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import BaseComponent from '../../base/baseComponent';
-import props from './props';
-import actions from './actions';
+import componentProps from './props';
+import componentActions from './actions';
+import AppRoutes from '../../main/routes';
+import appRoute from '../../components/route';
 import './reducer';
 import './styles/main.scss';
 
 class Layout extends BaseComponent {
+
   render() {
     return (
       <Router history={BrowserHistory}>
-        <section>
-          <h3>React Project Boilerplate</h3>
-          Is Loading: {this.props.isLoading ? 'Loading...' : 'Ready!'}
-          <br/>
-          <button onClick={this.props.getPost}>Get Post</button>
-          <button onClick={this.props.load}>Load</button>
-          <button onClick={this.props.complete}>Complete</button>
-          <br/>
-          <div>
-            {this.props.post.title}
-          </div>
-        </section>
+        <div className="b-applicationHolder">
+          {AppRoutes.map(appRoute)}
+        </div>
       </Router>
     );
   }
 }
 
-export default connect(props, actions)(Layout);
+Layout.propTypes = {
+  info: PropTypes.object.isRequired,
+};
+
+export default connect(componentProps, componentActions)(Layout);
