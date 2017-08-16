@@ -72,8 +72,11 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.NoEmitOnErrorsPlugin(),
+
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
+    new webpack.optimize.ModuleConcatenationPlugin(),
 
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',

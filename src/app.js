@@ -4,6 +4,7 @@ import SmartObject from './services/smartObject';
 let isRun = false;
 
 class App {
+
   constructor(appName) {
     this.name = appName;
     this.components = {};

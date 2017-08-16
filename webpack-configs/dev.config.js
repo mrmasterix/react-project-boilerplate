@@ -8,11 +8,17 @@ module.exports = {
   devtool: 'source-map',
 
   entry: {
-    bundle: ['babel-polyfill', path.resolve(__dirname, '../src/bundle.js')],
+    bundle: [
+      'babel-polyfill',
+      'react-hot-loader/patch',
+      'webpack/hot/dev-server',
+      'webpack-hot-middleware/client?reload=true',
+      path.resolve(__dirname, '../src/bundle.js'),
+    ],
   },
 
   output: {
-    filename: 'src/[name].js',
+    filename: 'js/[name].js',
     path: path.resolve(__dirname, '../dist/'),
     publicPath: '/',
   },
@@ -73,8 +79,11 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.NoEmitOnErrorsPlugin(),
+
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
+    new webpack.optimize.ModuleConcatenationPlugin(),
 
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
