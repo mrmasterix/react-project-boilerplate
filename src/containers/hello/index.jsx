@@ -23,7 +23,7 @@ class Hello extends BaseComponent {
         <SectionHello
           element={this.element}
           block={this.block}
-          title="!!React Project Boilerplate"
+          title="React Project Boilerplate"
           {...this.props}
         />
       </div>

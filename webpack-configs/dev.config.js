@@ -2,7 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const config = require('../config.json');
 
 module.exports = {
@@ -11,8 +10,10 @@ module.exports = {
   entry: {
     bundle: [
       'babel-polyfill',
-      'webpack-hot-middleware/client',
-      path.resolve(__dirname, '../src/bundle.js')
+      'react-hot-loader/patch',
+      'webpack/hot/dev-server',
+      'webpack-hot-middleware/client?reload=true',
+      path.resolve(__dirname, '../src/bundle.js'),
     ],
   },
 
@@ -83,7 +84,6 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
     new webpack.optimize.ModuleConcatenationPlugin(),
-    new CleanWebpackPlugin(['dist']),
 
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
