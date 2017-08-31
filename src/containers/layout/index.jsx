@@ -15,6 +15,7 @@ class Layout extends BaseComponent {
   render() {
     return (
       <Router history={BrowserHistory}>
+
         <div className="b-applicationHolder">
           {AppRoutes.map(appRoute)}
         </div>
