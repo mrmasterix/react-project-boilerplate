@@ -13,7 +13,7 @@
     "development": "./node_modules/.bin/webpack --watch --config ./webpack-configs/dev.config.js",
     "build": "./node_modules/.bin/webpack -p --config ./webpack-configs/prod.config.js",
     "clean": "rimraf dist/*",
-    "test-jest": "./node_modules/.bin/jest --colors --coverage ./test/**/*.test.js",
+    "test-jest": "./node_modules/.bin/jest --colors --coverage",
     "coverage-clean": "rimraf coverage",
     "lint": "./node_modules/.bin/eslint ./src/**/*.js ./src/**/*.jsx",
     "lint:fix": "./node_modules/.bin/eslint --fix -f html ./src/**/*.js ./src/**/*.jsx > ./lint-report.html"
